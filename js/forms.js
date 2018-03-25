@@ -4,10 +4,10 @@ $('.contact-form').submit(function(e){
 	e.preventDefault();
 	$.ajax({
 		type: 'POST',
-		url : 'php/contact.php',
+		url : 'https://hooks.zapier.com/hooks/catch/3093476/kqum9f/',
 		data: form.serialize(),
 		success: function(data){
-			form.find('.form-message').html(data).fadeIn();
+			form.find('.form-message').html('<span class="text-success send-true">Your email was sent!</span>').fadeIn();
 			form.find('.btn').prop('disabled', true);						
 			if ($(data).is('.send-true')){
 				setTimeout(function(){
