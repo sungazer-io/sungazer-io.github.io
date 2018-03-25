@@ -1,0 +1,170 @@
+/*Background*/
+/*Classic &  Light Background*/
+.light-template,
+.classic-template {
+	.fadeOutRightBig,
+	.fadeOutLeftBig {
+	  -webkit-animation-delay: 1.5s;
+	  animation-delay: 1.5s;
+	}
+}
+
+.classic-template {
+	#page1 {
+	  background: url(../img/background/darkfon.jpg) 50% 50% no-repeat;
+	  background-size:cover;
+	}
+	#page2 {
+	  background: url(../img/background/team.jpg) 50% 50% no-repeat;
+	  background-size:cover;
+	}
+	#page3 {
+	  background: url(../img/background/contact.jpg) 50% 50% no-repeat;
+	  background-size:cover;
+	}
+	#page4 {
+	  background:  url(../img/background/team.jpg) 50% 50% no-repeat;
+	  background-size:cover;
+	}
+	#page5 {
+		background:  url(../img/background/app.jpg) 50% 50% no-repeat;
+		background-size:cover;
+	}
+	.wrap-block {
+		.pp-tableCell {
+			background: rgba(0, 0, 0, .6);
+		}
+	}
+}
+
+.light-template {
+	#page1 {
+	  background: url(../img/background/white-bg/index.jpg) 50% 50% no-repeat;
+	  background-size:cover;
+	}
+	#page2 {
+	  background: url(../img/background/white-bg/about.jpg) 50% 50% no-repeat;
+	  background-size:cover;
+	}
+	#page3 {
+	  background: url(../img/background/white-bg/contacts.jpg) 50% 50% no-repeat;
+	  background-size:cover;
+	}
+	#page4 {
+	  background:  url(../img/background/white-bg/portfolio.jpg) 50% 50% no-repeat;
+	  background-size:cover;
+	}
+	#page5 {
+		background:  url(../img/background/white-bg/app.jpg) 50% 50% no-repeat;
+		background-size:cover;
+	}
+	section {
+		.pp-tableCell {
+			background: rgba(255, 255, 255, .7)!important;
+		}
+	}
+}
+
+/*Slider Background*/
+.slider-template {
+	z-index: 9999;
+  position: absolute;
+  .pp-easing {
+  	transition-delay: 500ms !important;
+  	-webkit-transition-delay: 500ms !important;
+  }
+	.bg-box {
+	  background-position: top center;
+	  background-repeat: no-repeat;
+	  background-size: cover;
+	  height: 100%;
+	  left: 0;
+	  overflow: hidden;
+	  position: absolute;
+	  top: 0;
+	  width: 100%;
+	  z-index: -1;
+		.rslides {
+		  height: 100%;
+		  list-style: none;
+		  margin: 0;
+		  overflow: hidden;
+		  padding: 0;
+		  position: relative;
+		  width: 100%;
+		  z-index: 1;
+		  li {
+		    -webkit-backface-visibility: hidden;
+		    background-size: cover!important;
+		    display: none;
+		    height: 100%;
+		    left: 0;
+		    padding-left: 0;
+		    position: absolute;
+		    top: 0;
+		    width: 100%;
+		    &:first-child {
+		      display: block;
+		      float: left;
+		      position: relative;
+		    }
+			  &:before {
+					background: rgba(0, 0, 0, .6);
+					content: '';
+					height: 100%;
+					position: absolute;
+					width: 100%;
+			  } 
+		  }
+		}
+	}
+}
+
+/*Video Background*/
+.bg-video {
+	background: url(../img/background/video-bg.jpg) no-repeat;
+	.general-block {
+		background: rgba(0, 0, 0, .1);
+	}
+	.pp-easing {
+		transition-delay: 500ms !important;
+		-webkit-transition-delay: 500ms !important;
+	}
+	video {
+	  min-height: 100%;
+	  min-width: 100%;
+	  position: fixed;
+	  z-index: -1;
+	}
+} 
+
+/*Gradient Background*/ 
+.gradient-template {
+	.pp-easing {
+		transition-delay: 500ms !important;
+		-webkit-transition-delay: 500ms !important;
+	}
+	.general-block {
+		background: url(../img/background/gradient.jpg) 50% 50% no-repeat;
+		background-size: cover;
+		.general-block-gradient {
+			height: 100%;
+			background: rgb(255,0,142); /* Old browsers */
+			background: -moz-linear-gradient(left,  rgba(255,0,142,.4) 0%, rgba(0,181,255,.4) 100%); /* FF3.6-15 */
+			background: -webkit-linear-gradient(left,  rgba(255,0,142,.4) 0%,rgba(0,181,255,.4) 100%); /* Chrome10-25,Safari5.1-6 */
+			background: linear-gradient(to right,  rgba(255,0,142,.4) 0%,rgba(0,181,255,.4) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff008e', endColorstr='#00b5ff',GradientType=1 ); /* IE6-9 */
+		}
+	}
+}
+
+/*Under Constaction Background*/
+.under-construction {
+	#page1 {
+	  background-size:cover;
+	  background: url(../img/background/under.jpg) 50% 50% no-repeat;
+	  .pp-tableCell {
+	  	background: rgba(0, 0, 0, .6);
+	  }
+	}
+}
