@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-116297932-1"></script>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" >
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/user.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="assets/js/web3.js"></script>
+    <title>Save and Read messages on the Blockchain</title>
+
+</head>
+<body class="side-panel-light has-loading-screen color-theme-monochrome" style="background-position: center;background-image: url('assets/img/05.jpg'); background-size: auto;">
+
+    <!--PAGE-->
+
+	<div id="page">
+		<div class="page-wrapper">
+			<figure class="page-wrapper-inner">
+				<div class="base-layer">
+                    <canvas id="particles-js"></canvas>
+                </div>
+				<!--end layer-->
+				<div class="layer animate pointer-events-none"></div>
+				<!--end layer-->
+				<div class="layer animate scrollable">
+					<div id="content">
+						<div class="content-wrapper">
+							<!--end container-->
+                            <div class="container" id="survey">
+                                <div class="survey">
+                                    <div class="container-fluid" style="margin: 10px;">
+                                        <form id="formtosave" >
+                                            <div class="row">
+                                                    <div class="col-xs-" style="margin-top:4px; margin-bottom:4px">
+                                                            <span>Message to save</span>
+                                                        <input type="text" name="towrite" id="towrite"
+                                                               placeholder="Message to save" required>
+                                                    </div>
+                                                <div class="col" style="display: flex; align-items: right">
+                                                    <input id="btnSave" type="button"
+                                                           class="btn btn-default btn-border" value="Save message"/>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <i id="writespinner" class="fa fa-circle-o-notch fa-spin hidden" style="font-size:24px"></i>
+                                                <p id="savedmessageid" class="hidden"></p>
+                                            </div>
+                                        </form>
+                                        <form id="formtoread">
+                                            <div class="row">
+                                                <div class="col-xs-" style="margin-top:4px; margin-bottom:4px">
+                                                    <span>ID of message to read</span>
+                                                    <input type="text" name="toread" id="toread"
+                                                           placeholder="ID of message to read" required>
+                                                </div>
+                                                <div class="col" style="display: flex; align-items: right">
+
+                                                    <input id="btnRead" type="button"
+                                                           class="btn btn-default btn-border" value="Read message"/>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <p id="retrieved" class="hidden"></p>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+						</div>
+						<!--end content-wrapper-->
+					</div>
+					<!--end content-->
+				</div>
+				<!--end layer-->
+			</figure>
+			<!--end cd-floating-background-->
+		</div>
+		<!--end cd-background-wrapper-->
+	</div>
+	<!--end page-->
+
+
+	<script src="assets/js/jquery-2.1.1.js"></script>
+	<script type="text/javascript" src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/pace.min.js"></script>
+    <script src="assets/js/jquery.validate.min.js"></script>
+	<script src="assets/js/parallax-hero.js"></script>
+	<script src="assets/js/modernizr.js"></script>
+	<script src="assets/js/jquery.magnific-popup.min.js"></script>
+	<script src="assets/js/particle-field.js"></script>
+	<script src="assets/js/custom.js"></script>
+    <script src="assets/js/wall.js"></script>
+
+
+</body>
+</html>
