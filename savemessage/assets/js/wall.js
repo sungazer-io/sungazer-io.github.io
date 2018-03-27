@@ -124,6 +124,7 @@ window.addEventListener('load', function () {
         case "1":
             console.log('This is mainnet');
             Wall = WallContract.at('0x267CcD9E8ac55aFb9e4b865912dEAB467dE9caD1');
+
             break
         case "2":
             console.log('This is the deprecated Morden test network.');
@@ -142,10 +143,25 @@ window.addEventListener('load', function () {
         default:
             console.log('This is an unknown network.')
         }
+        console.log(Wall);
+        populateCounter();
     });
-    console.log(Wall);
+});
 
-})
+
+function populateCounter(){
+    Wall.getMaxIndex(function(error, result){
+        if(!error)
+        {
+            $("#messages").html(result.c-1);
+            console.log(result);
+        }
+        else
+            console.error(error);
+    });
+    return;
+}
+
 
 $('#btnRead').click(
     function (){
