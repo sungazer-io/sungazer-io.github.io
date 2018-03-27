@@ -119,8 +119,30 @@ window.addEventListener('load', function () {
             "type": "event"
         }
     ]);
-
-    Wall = WallContract.at('0xD7De7AB5A245dA11c3dDc098Ab634Be0De6DFA3A');
+    web3.version.getNetwork(function (err, netId){
+        switch (netId) {
+        case "1":
+            console.log('This is mainnet');
+            Wall = WallContract.at('0x267CcD9E8ac55aFb9e4b865912dEAB467dE9caD1');
+            break
+        case "2":
+            console.log('This is the deprecated Morden test network.');
+            break
+        case "3":
+            console.log('This is the ropsten test network.');
+            Wall = WallContract.at('0x4AD10146bC99EFC992E146842272AA9a77ECb62D');
+            break
+        case "4":
+            console.log('This is the Rinkeby test network.');
+            Wall = WallContract.at('0xD7De7AB5A245dA11c3dDc098Ab634Be0De6DFA3A');
+            break
+        case "42":
+            console.log('This is the Kovan test network.');
+            break
+        default:
+            console.log('This is an unknown network.')
+        }
+    });
     console.log(Wall);
 
 })
