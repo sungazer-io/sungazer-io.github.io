@@ -40,6 +40,11 @@
                                     <div class="container-fluid" style="margin: 10px;">
                                         <form id="formtosave" >
                                             <div class="row">
+                                                <div class="col-xs-" style="margin-top:4px; margin-bottom:4px">
+                                                    <span>Password to protect message</span>
+                                                    <input type="password" name="passwordtowrite" id="passwordtowrite"
+                                                           placeholder="Password">
+                                                </div>
                                                     <div class="col-xs-" style="margin-top:4px; margin-bottom:4px">
                                                             <span>Message to save</span>
                                                         <input type="text" name="towrite" id="towrite"
@@ -61,6 +66,11 @@
                                                     <span>ID of message to read</span>
                                                     <input type="text" name="toread" id="toread"
                                                            placeholder="ID of message to read" required>
+                                                </div>
+                                                <div class="col-xs-" style="margin-top:4px; margin-bottom:4px">
+                                                    <span>Password to decrypt message</span>
+                                                    <input type="password" name="passwordtoread" id="passwordtoread"
+                                                           placeholder="Password">
                                                 </div>
                                                 <div class="col" style="display: flex; align-items: right">
 
@@ -99,6 +109,7 @@
 	<script src="assets/js/jquery.magnific-popup.min.js"></script>
 	<script src="assets/js/particle-field.js"></script>
 	<script src="assets/js/custom.js"></script>
+    <script src="assets/js/sjcl.js"></script>
     <script src="assets/js/wall.js"></script>
 
 

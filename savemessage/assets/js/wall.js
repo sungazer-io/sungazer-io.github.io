@@ -157,6 +157,7 @@ $('#btnRead').click(
                 $("#retrieved").html(result);
                 $('#retrieved').removeClass('hidden');
                 console.log(result);
+                doDecrypt();
             }
             else
                 console.error(error);
@@ -200,3 +201,115 @@ var getTransactionReceipt = function (txId) {
         }
     });
 };
+
+
+
+function doDecrypt() {
+
+    var password = $('#passwordtoread').val();
+    if (password === '') {
+        return;
+    }
+
+    try {
+        var rp, p;
+
+        p = getParameters();
+
+        var text = sjcl.decrypt(password, JSON.stringify(p), {}, rp);
+
+
+        var html = escapeHtml(text);
+
+        $("#retrieved").html(html);
+
+
+    } catch (e) {
+        console.error(e.message);
+    }
+}
+
+var config = {
+    maxUrlLength: 2000,
+    isDefault: true,
+    v: 1,
+    iter: 1000,
+    ks: 128,
+    ts: 64,
+    mode: "ccm",
+    cipher: "aes",
+    delimiter: '.'
+};
+
+function escapeHtml(html) {
+    return html.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&apos;');
+}
+
+function getParameters()
+{
+    var message = $("#retrieved").html();
+    var code = message.match(/#([\S]+)/ig);
+
+    if (code === null) {
+        throw new Error('Encrypted message does not found.')
+    }
+
+    code = code[0].substring(1);
+    var parts = code.split(config.delimiter);
+
+    if (parts.length === 3) {
+        return {
+            "v": 1,
+            "cipher": "aes",
+            "mode": "ccm",
+            "iter": 1000,
+            "ks": 128,
+            "ts": 64,
+            "iv": parts[0],
+            "salt": parts[1],
+            "ct": parts[2],
+            "adata": ""
+        };
+    } else if (parts.length === 4) {
+        return {
+            "v": 1,
+            "cipher": "aes",
+            "mode": "ccm",
+            "iter": 1000,
+            "ks": 128,
+            "ts": 64,
+            "iv": parts[0],
+            "salt": parts[1],
+            "ct": parts[2],
+            "adata": parts[3]
+        };
+    } else if (parts.length === 8) {
+        return {
+            "v": 1,
+            "cipher": parts[0],
+            "mode": parts[1],
+            "iter": parseInt(parts[2]),
+            "ks": parseInt(parts[3]),
+            "ts": parseInt(parts[4]),
+            "iv": parts[5],
+            "salt": parts[6],
+            "ct": parts[7],
+            "adata": ""
+        };
+    } else if (parts.length === 9) {
+        return {
+            "v": 1,
+            "cipher": parts[0],
+            "mode": parts[1],
+            "iter": parseInt(parts[2]),
+            "ks": parseInt(parts[3]),
+            "ts": parseInt(parts[4]),
+            "iv": parts[5],
+            "salt": parts[6],
+            "ct": parts[7],
+            "adata": parts[8]
+        };
+    } else {
+        throw new Error('Encrypted message format is not recognized.');
+    }
+}
