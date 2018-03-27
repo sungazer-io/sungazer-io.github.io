@@ -173,7 +173,7 @@ $('#btnSave').click(
         $('#writespinner').removeClass('hidden');
         $('#savedmessageid').removeClass('hidden');
         $("#savedmessageid").html('Your message is being saved. Please wait.');
-        Wall.saveMessage(towrite,{value: 3000000000000000, gasPrice: 10000000000, gas: 150000},function(error, result){
+        Wall.saveMessage(towrite,{value: 3000000000000000, gasPrice: 4000000000, gas: 450000},function(error, result){
             if(!error)
             {
                 // $("#retrieved").html(result);
