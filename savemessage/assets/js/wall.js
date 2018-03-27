@@ -170,6 +170,7 @@ $('#btnSave').click(
     function (){
         var towrite = $('#towrite').val().toString();
         console.log(towrite);
+        towrite = doEncrypt(towrite).toString();
         $('#btnSave').hide();
         $('#writespinner').removeClass('hidden');
         $('#savedmessageid').removeClass('hidden');
@@ -311,5 +312,34 @@ function getParameters()
         };
     } else {
         throw new Error('Encrypted message format is not recognized.');
+    }
+}
+
+function doEncrypt(text) {
+    var password = $('#passwordtowrite').val();
+
+
+    if (password !== '') {
+        var p, rp = {}, data, string, code, d = config.delimiter;
+
+        p = {
+            adata: '',
+            iter: config.iter,
+            mode: config.mode,
+            ts: config.ts,
+            ks: config.ks
+        };
+
+        string = sjcl.encrypt(password, text, p, rp);
+
+        console.log(string);
+        data = JSON.parse(string);
+
+        code = '#' + data.iv + d + data.salt + d + data.ct;
+        console.log(code);
+
+        return code;
+
+
     }
 }
