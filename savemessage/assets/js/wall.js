@@ -342,4 +342,7 @@ function doEncrypt(text) {
 
 
     }
+    else{
+        return text;
+    }
 }
